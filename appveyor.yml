@@ -15,16 +15,13 @@ install:
   - ps: Update-NodeJsInstallation (Get-NodeJsLatestBuild $env:nodejs_version)
   - cmd: SET PATH=C:\Program Files (x86)\MSBuild\12.0\bin\;%PATH%
   - cmd: SET PATH=C:\python27;%PATH%
-  - cmd: git clone https://github.com/atom/atom
+  - cmd: git clone https://github.com/alfredxing/atom
   - cmd: cd atom
   - script/build
-  - cmd: apm\node_modules\.bin\apm update
-  - cmd: apm\node_modules\.bin\apm install linter
 
 test_script:
   - node --version
   - npm --version
   - cmd: apm\node_modules\.bin\apm --version
-  - cmd: C:\Program Files\atom\atom.exe --dev --test --spec-directory=spec
 
 build: off
