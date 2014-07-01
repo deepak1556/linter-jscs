@@ -18,9 +18,13 @@ install:
   - cmd: git clone https://github.com/atom/atom
   - cmd: cd atom
   - script/build
+  - cmd: apm\node_modules\.bin\apm update
+  - cmd: apm\node_modules\.bin\apm install linter
 
 test_script:
   - node --version
   - npm --version
+  - cmd: apm\node_modules\.bin\apm --version
+  - cmd: C:\Program Files\atom\atom.exe --dev --test --spec-directory=spec
 
 build: off
